@@ -25,4 +25,4 @@ A real-time chat application built using Node.js that allows users to communicat
    http://localhost:3000
 
 ## 📷 Demo
-(Add screenshots here later)
+https://drive.google.com/file/d/1waaTUJD50refJAh5OoPRmd4M445DFXKQ/view?usp=drive_link
