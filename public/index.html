@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VibeChat — Real-Time Multi-User Chat</title>
+  <meta name="description" content="A real-time, multi-user chat application built with the Vibe engine.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="toast-container"></div>
+  <div id="reconnecting-banner" class="hidden">
+    <span class="spinner"></span> Reconnecting...
+  </div>
+  <div id="app">
+    <!-- Login overlay -->
+    <div id="login-overlay">
+      <div class="login-card">
+        <h1>Welcome to VibeChat</h1>
+        <form id="login-form">
+          <input type="text" id="username-input" placeholder="Enter your username" required autocomplete="off" />
+          <button type="submit">Join Chat</button>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Main chat layout -->
+    <div id="chat-layout" class="hidden">
+      <aside id="sidebar">
+        <div id="sidebar-header">
+          <h2>Chats</h2>
+          <button id="new-chat-btn" title="New Chat" aria-label="Start a new chat">+</button>
+        </div>
+        <ul id="thread-list"></ul>
+      </aside>
+      <main id="chat-area">
+        <header id="chat-header">
+          <span id="chat-title">Select a chat</span>
+          <span id="connection-status" class="status-dot"></span>
+        </header>
+        <div id="messages-container">
+          <div class="empty-state-chat">
+            <span class="empty-icon">💬</span>
+            <p>Select a chat to start messaging</p>
+          </div>
+        </div>
+        <div id="typing-indicator" class="hidden">
+          <span>Someone is typing</span><span class="dots"><span>.</span><span>.</span><span>.</span></span>
+        </div>
+        <form id="message-form">
+          <input id="message-input" type="text" placeholder="Type a message..." autocomplete="off" aria-label="Type a message" />
+          <button id="send-btn" type="submit" aria-label="Send message">Send</button>
+        </form>
+      </main>
+    </div>
+  </div>
+
+  <!-- New Chat Modal -->
+  <div id="new-chat-modal" class="hidden modal-overlay">
+    <div class="modal-card">
+      <h2>Start Context</h2>
+      <p style="margin-bottom: 1rem; color: var(--text-secondary); font-size: 0.9rem;">Enter the exact username of the person you want to chat with.</p>
+      <input type="text" id="new-chat-input" placeholder="Recipient username" aria-label="Recipient username" autocomplete="off" />
+      <div class="modal-actions" style="margin-top: 1.5rem; display: flex; justify-content: flex-end; gap: 0.5rem;">
+        <button id="cancel-new-chat-btn" style="background: var(--bg-tertiary); color: var(--text-primary);">Cancel</button>
+        <button id="confirm-new-chat-btn">Start Chat</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
